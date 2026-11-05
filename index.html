@@ -30,7 +30,7 @@
 <link rel="preload" as="image" href="img/h/hero-d.webp" imagesrcset="img/h/hero-d.webp 1100w, img/h/hero-d-lg.webp 1600w" imagesizes="55vw" media="(min-width: 900px)">
 <link rel="stylesheet" href="css/fuentes.css?v=1">
 <link rel="stylesheet" href="kit/kit.css?v=1">
-<link rel="stylesheet" href="css/rumbo.css?v=1">
+<link rel="stylesheet" href="css/rumbo.css?v=2">
 </head>
 <body>
 
@@ -115,11 +115,11 @@
   <!-- BRÚJULA -->
   <section class="brujula" id="brujula" aria-labelledby="bru-t">
     <div class="cont brujula__in">
-      <header class="sec-cab sec-cab--claro rv">
+      <header class="sec-cab sec-cab--claro sec-cab--centro rv">
         <p class="kicker">La brújula de Rumbo</p>
         <h2 class="sec-t" id="bru-t">¿Para qué bebida estás hoy?</h2>
         <svg class="subraya" viewBox="0 0 300 20" aria-hidden="true"><path pathLength="1" d="M2 14 C60 18 90 4 140 8 C190 12 220 18 298 6"/></svg>
-        <p class="sec-d">Girá la brújula o tocá una bebida. Te contamos qué lleva, cuánto sale y la sumás a tu pedido para retirar.</p>
+        <p class="sec-d">Cada bebida es un rumbo. Tocala o girá la aguja: te contamos qué lleva y cuánto sale, y la sumás a tu pedido para retirar.</p>
       </header>
 
       <div class="brujula__juego">
@@ -127,29 +127,30 @@
           <div class="dial__aro" aria-hidden="true">
             <svg viewBox="0 0 400 400">
               <circle class="dial__c1" cx="200" cy="200" r="194"/>
-              <circle class="dial__c2" cx="200" cy="200" r="132"/>
+              <circle class="dial__c2" cx="200" cy="200" r="150"/>
               <g class="dial__marcas"></g>
             </svg>
           </div>
           <div class="dial__aguja" aria-hidden="true"><span class="dial__punta"></span><span class="dial__cola"></span></div>
-          <span class="dial__centro" aria-hidden="true"></span>
           <div class="dial__puntos"></div>
-        </div>
-
-        <article class="ficha rv" aria-live="polite">
-          <div class="ficha__foto"><img src="img/p/flat-white.webp" width="900" height="900" alt="" decoding="async" loading="lazy"><span class="ficha__taza" aria-hidden="true" hidden></span></div>
-          <div class="ficha__txt">
-            <p class="ficha__k">Tu rumbo de hoy</p>
-            <h3 class="ficha__n">Flat White</h3>
-            <p class="ficha__ml">160 ml</p>
-            <p class="ficha__d">Dos shots de espresso + leche emulsionada.</p>
-            <div class="ficha__pie">
-              <b class="ficha__p">$6.500</b>
-              <button type="button" class="btn btn--oro ficha__sumar" data-calibrar="flat-white">Sumar</button>
+          <div class="dial__centro">
+            <div class="dial__hola" aria-hidden="true">
+              <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><circle cx="32" cy="32" r="28"/><path d="M32 10l6 22-6 22-6-22z" fill="currentColor" fill-opacity=".25"/><path d="M32 4v4M32 56v4M4 32h4M56 32h4"/></svg>
+              <b>Elegí tu rumbo</b>
+              <span class="solo-m">Tocá una bebida o girá la aguja</span><span class="solo-d">Pasá por una bebida o girá la aguja</span>
             </div>
-            <p class="ficha__nota">Leche de avena o almendras y extra shot, al sumarla.</p>
+            <article class="pop" aria-live="polite" hidden>
+              <div class="pop__foto"><img src="img/p/flat-white.webp" width="900" height="900" alt="" decoding="async"><span class="pop__taza" aria-hidden="true" hidden></span></div>
+              <div class="pop__txt">
+                <h3 class="pop__n">Flat White</h3>
+                <p class="pop__ml"><span>160 ml</span> · <b>$6.500</b></p>
+                <p class="pop__d">Dos shots de espresso + leche emulsionada.</p>
+                <button type="button" class="btn btn--oro btn--chico pop__sumar" data-calibrar="flat-white">Sumar</button>
+              </div>
+            </article>
           </div>
-        </article>
+        </div>
+        <p class="brujula__nota rv">Al sumarla elegís leche de avena o almendras, extra shot o el tamaño del filtrado.</p>
       </div>
     </div>
   </section>
@@ -325,6 +326,6 @@
   </div>
 </div>
 
-<script type="module" src="js/rumbo.js?v=1"></script>
+<script type="module" src="js/rumbo.js?v=2"></script>
 </body>
 </html>

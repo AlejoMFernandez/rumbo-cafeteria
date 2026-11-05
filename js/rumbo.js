@@ -77,9 +77,8 @@ function tplCarta(p, ctx) {
   const precio = vs.length ? `desde ${ctx.money(vs[0].precio)}` : (ctx.money(p.precio) ?? '<span class="kit-price--na">Consultar</span>');
   const tags = (p.etiquetas || []).map(t => `<span class="it__tag">${esc(ETIQ[t]?.label || t)}</span>`).join('');
   const pedible = ctx.pedible(p);
-  const boton = !pedible ? '' : conOpciones(p)
-    ? `<button type="button" class="it__cal" data-calibrar="${esc(p.id)}" aria-label="Sumar ${esc(p.nombre)}">Sumar<i hidden></i></button>`
-    : `<div data-kit-qty="${esc(p.id)}"></div>`;
+  // un solo botón redondo para todo: no cambia de tamaño al sumar (la cantidad va en un globito)
+  const boton = !pedible ? '' : `<button type="button" class="it__cal" data-calibrar="${esc(p.id)}" aria-label="Sumar ${esc(p.nombre)}"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg><i hidden></i></button>`;
   return `<div class="it__body"><h4 class="it__n">${esc(p.nombre)}${tags}</h4>${p.descripcion ? `<p class="it__d">${esc(p.descripcion)}</p>` : ''}${p.foto ? `<button type="button" class="it__ver" data-foto="${esc(ctx.asset(p.foto))}" data-nombre="${esc(p.nombre)}">Ver foto</button>` : ''}</div>
     <div class="it__side"><span class="it__p">${precio}</span>${boton}</div>`;
 }
@@ -151,7 +150,7 @@ function mostrarFoto(item) {
 function onCarta(e) {
   (e.detail.productos || []).forEach(p => productos.set(p.id, p));
   if (e.detail.el === cartaEl) pintarCabecera();
-  pintarPrecios(); pintarFicha(bebidaActual, false); pintarTicket();
+  pintarPrecios(); if (bebidaActual >= 0) pintarPop(bebidaActual, false); pintarTicket();
 }
 
 cartaEl.addEventListener('click', (e) => {
@@ -274,7 +273,7 @@ document.addEventListener('kit:carrito', (e) => { pintarContador((e.detail?.delt
 kit.carrito.listo?.then(() => { pintarContador(); pintarTicket(); pintarBadges(); });
 
 // =========================================================
-// LA BRÚJULA
+// LA BRÚJULA: grande y centrada; la info aparece en el centro (tamaño fijo, nada se mueve)
 // =========================================================
 const BEBIDAS = [
   { id: 'doppio', label: 'Doppio', ml: 'Dos shots' },
@@ -282,61 +281,66 @@ const BEBIDAS = [
   { id: 'latte', label: 'Latte', ml: '240 ml' },
   { id: 'filtrado', label: 'Filtrado V60', ml: '220 o 440 ml' },
   { id: 'latte-frio', label: 'Latte frío', ml: '300 ml' },
-  { id: 'chai-latte', label: 'Chai latte', ml: '240 ml', tinta: '#B9875A' },
-  { id: 'matcha-latte', label: 'Matcha latte', ml: '240 ml', tinta: '#8DA65A' },
+  { id: 'chai-latte', label: 'Chai latte', ml: '240 ml', tinta: 'rgba(185, 135, 90, .55)' },
+  { id: 'matcha-latte', label: 'Matcha', ml: '240 ml', tinta: 'rgba(141, 166, 90, .55)' },
   { id: 'cappuccino', label: 'Cappuccino', ml: '160 ml' },
 ];
-const dial = $('.dial'), puntos = $('.dial__puntos'), aguja = $('.dial__aguja');
+const dial = $('.dial'), puntos = $('.dial__puntos'), aguja = $('.dial__aguja'), pop = $('.pop');
 const N = BEBIDAS.length, PASO = 360 / N;
-let bebidaActual = 1, angulo = PASO * 1;
+let bebidaActual = -1, angulo = 0;
 puntos.innerHTML = BEBIDAS.map((b, i) => `<button type="button" class="dial__p" data-i="${i}" aria-pressed="false">${esc(b.label)}</button>`).join('');
-$('.dial__marcas').innerHTML = Array.from({ length: N * 4 }, (_, k) => { const a = (k * 360 / (N * 4) - 90) * Math.PI / 180; const r1 = k % 4 ? 186 : 178; return `<line x1="${200 + Math.cos(a) * r1}" y1="${200 + Math.sin(a) * r1}" x2="${200 + Math.cos(a) * 194}" y2="${200 + Math.sin(a) * 194}"/>`; }).join('');
+$('.dial__marcas').innerHTML = Array.from({ length: N * 4 }, (_, k) => { const a = (k * 360 / (N * 4) - 90) * Math.PI / 180; const r1 = k % 4 ? 186 : 176; return `<line x1="${200 + Math.cos(a) * r1}" y1="${200 + Math.sin(a) * r1}" x2="${200 + Math.cos(a) * 194}" y2="${200 + Math.sin(a) * 194}"/>`; }).join('');
 function ubicarPuntos() {
   const tam = dial.getBoundingClientRect().width || 360;
-  const r = tam * (desktop.matches ? .385 : .37);
+  const r = tam * .425;
   $$('.dial__p', puntos).forEach((b, i) => {
     const a = (i * PASO - 90) * Math.PI / 180;
     b.style.setProperty('--x', `${Math.cos(a) * r}px`); b.style.setProperty('--y', `${Math.sin(a) * r}px`);
   });
 }
 ubicarPuntos(); addEventListener('resize', () => requestAnimationFrame(ubicarPuntos), { passive: true });
-const TAZA = (tinta) => `<svg viewBox="0 0 64 64" fill="none" stroke="#E0A858" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 24h34v10a17 17 0 0 1-34 0V24Z" fill="${tinta}" fill-opacity=".55"/><path d="M46 28h4a6 6 0 0 1 0 12h-5"/><path d="M8 56h44"/><path d="M22 10c-2 3 2 5 0 8M30 8c-2 3 2 5 0 8M38 10c-2 3 2 5 0 8"/></svg>`;
-function pintarFicha(i, animar = true) {
+const TAZA = `<svg viewBox="0 0 64 64" fill="none" stroke="#E0A858" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 24h34v10a17 17 0 0 1-34 0V24Z" fill="#E0A858" fill-opacity=".25"/><path d="M46 28h4a6 6 0 0 1 0 12h-5"/><path d="M8 56h44"/><path d="M22 10c-2 3 2 5 0 8M30 8c-2 3 2 5 0 8M38 10c-2 3 2 5 0 8"/></svg>`;
+function pintarPop(i, animar = true) {
+  if (i < 0) return;
   const b = BEBIDAS[i]; const p = productos.get(b.id);
   $$('.dial__p', puntos).forEach((x, k) => { x.classList.toggle('is-on', k === i); x.setAttribute('aria-pressed', String(k === i)); });
-  const ficha = $('.ficha');
+  const primera = pop.hidden;
   const aplicar = () => {
-    $('.ficha__n').textContent = p?.nombre?.replace(/ · .*$/, '') || b.label;
-    $('.ficha__ml').textContent = b.ml;
-    $('.ficha__d').textContent = p?.descripcion || '';
+    $('.pop__n', pop).textContent = p?.nombre?.replace(/ · .*$/, '') || b.label;
     const vs = p && tieneVariantes(p) ? p.variantes.filter(v => v.precio != null) : [];
-    $('.ficha__p').textContent = p ? (vs.length ? `desde ${money(vs[0].precio)}` : (money(p.precio) || 'Consultar')) : '';
-    $('.ficha__sumar').dataset.calibrar = b.id;
-    $('.ficha__nota').textContent = p?.opciones?.some(o => o.id === 'leche') ? 'Leche de avena o almendras y extra shot, al sumarla.' : b.id === 'filtrado' ? 'Elegís V60 u Origami y 1 o 2 tazas al sumarlo.' : 'Le podés sumar un extra shot.';
-    const img = $('.ficha__foto img'), taza = $('.ficha__taza');
+    $('.pop__ml span', pop).textContent = b.ml;
+    $('.pop__ml b', pop).textContent = p ? (vs.length ? `desde ${money(vs[0].precio)}` : (money(p.precio) || 'Consultar')) : '';
+    $('.pop__d', pop).textContent = p?.descripcion || '';
+    $('.pop__sumar', pop).dataset.calibrar = b.id;
+    $('.pop__sumar', pop).setAttribute('aria-label', `Sumar ${b.label} a tu pedido`);
+    const img = $('.pop__foto img', pop), taza = $('.pop__taza', pop);
     if (p?.foto) { img.hidden = false; taza.hidden = true; img.src = kit.asset(p.foto); img.alt = p.nombre; }
-    else { img.hidden = true; taza.hidden = false; taza.innerHTML = TAZA(b.tinta || '#C9974E'); }
-    ficha.classList.remove('is-cambia'); $('.ficha__foto').classList.remove('is-cambia');
+    else { img.hidden = true; taza.hidden = false; taza.style.setProperty('--tinta-taza', b.tinta || 'rgba(201, 151, 78, .4)'); taza.innerHTML = TAZA; }
+    pop.classList.remove('is-cambia');
   };
+  if (primera) { aplicar(); pop.hidden = false; dial.classList.add('is-elegida'); return; }
   if (!animar || calma) { aplicar(); return; }
-  ficha.classList.add('is-cambia'); $('.ficha__foto').classList.add('is-cambia');
-  setTimeout(aplicar, 200);
+  pop.classList.add('is-cambia');
+  setTimeout(aplicar, 180);
 }
 function irA(i, animar = true) {
   i = ((i % N) + N) % N;
-  // el camino más corto para la aguja
-  const destino = i * PASO; let d = destino - (angulo % 360); if (d > 180) d -= 360; if (d < -180) d += 360;
+  let d = i * PASO - (angulo % 360); if (d > 180) d -= 360; if (d < -180) d += 360;
   angulo += d; aguja.style.setProperty('--ang', `${angulo}deg`);
-  if (i !== bebidaActual || !animar) { bebidaActual = i; pintarFicha(i, animar); }
+  if (i !== bebidaActual) { bebidaActual = i; pintarPop(i, animar); }
 }
-aguja.style.setProperty('--ang', `${angulo}deg`);
 puntos.addEventListener('click', (e) => { const b = e.target.closest('.dial__p'); if (b && !arrastro) irA(Number(b.dataset.i)); });
-puntos.addEventListener('pointerover', (e) => { if (!hoverFino.matches || arrastrando) return; const b = e.target.closest('.dial__p'); if (b) irA(Number(b.dataset.i)); });
-// girar con el dedo o el mouse
+let hovT2 = 0;
+puntos.addEventListener('pointerover', (e) => {
+  if (!hoverFino.matches || arrastrando) return;
+  const b = e.target.closest('.dial__p'); if (!b) return;
+  clearTimeout(hovT2); hovT2 = setTimeout(() => irA(Number(b.dataset.i)), 60);
+});
+// girar la aguja con el dedo o el mouse (desde el aro, no desde el centro: ahí está el botón Sumar)
 let arrastrando = false, arrastro = false, inicio = null;
 const anguloDe = (e) => { const r = dial.getBoundingClientRect(); return Math.atan2(e.clientY - (r.top + r.height / 2), e.clientX - (r.left + r.width / 2)) * 180 / Math.PI + 90; };
 dial.addEventListener('pointerdown', (e) => {
-  if (e.button !== 0) return;
+  if (e.button !== 0 || e.target.closest('.dial__centro button')) return;
   inicio = { x: e.clientX, y: e.clientY, id: e.pointerId }; arrastro = false;
 });
 dial.addEventListener('pointermove', (e) => {
@@ -344,29 +348,26 @@ dial.addEventListener('pointermove', (e) => {
   const dx = e.clientX - inicio.x, dy = e.clientY - inicio.y;
   if (!arrastrando) {
     if (Math.hypot(dx, dy) < 8) return;
-    // en el celu, un gesto vertical es scroll de la página
     if (e.pointerType !== 'mouse' && Math.abs(dy) > Math.abs(dx) * 1.2) { inicio = null; return; }
     arrastrando = true; arrastro = true; dial.classList.add('is-arrastra'); dial.setPointerCapture(e.pointerId);
   }
   e.preventDefault();
-  let a = anguloDe(e); let d = a - (angulo % 360); if (d > 180) d -= 360; if (d < -180) d += 360; angulo += d;
+  let d = anguloDe(e) - (angulo % 360); if (d > 180) d -= 360; if (d < -180) d += 360; angulo += d;
   aguja.style.setProperty('--ang', `${angulo}deg`);
   const i = ((Math.round(angulo / PASO) % N) + N) % N;
-  $$('.dial__p', puntos).forEach((x, k) => x.classList.toggle('is-on', k === i));
+  if (i !== bebidaActual) { bebidaActual = i; pintarPop(i); }
 });
 const soltar = () => {
-  if (arrastrando) { dial.classList.remove('is-arrastra'); const i = Math.round(angulo / PASO); bebidaActual = -1; irA(i); }
+  if (arrastrando) { dial.classList.remove('is-arrastra'); irA(Math.round(angulo / PASO)); }
   arrastrando = false; inicio = null; setTimeout(() => { arrastro = false; }, 30);
 };
 dial.addEventListener('pointerup', soltar); dial.addEventListener('pointercancel', soltar);
-// teclado: flechas sobre los puntos
 puntos.addEventListener('keydown', (e) => {
   if (!['ArrowRight', 'ArrowLeft', 'ArrowUp', 'ArrowDown'].includes(e.key)) return;
-  e.preventDefault(); const d = e.key === 'ArrowRight' || e.key === 'ArrowDown' ? 1 : -1; irA(bebidaActual + d); $$('.dial__p', puntos)[bebidaActual].focus();
+  e.preventDefault(); const d = e.key === 'ArrowRight' || e.key === 'ArrowDown' ? 1 : -1; irA(Math.max(bebidaActual, 0) + d); $$('.dial__p', puntos)[bebidaActual].focus();
 });
 // chips del hero → la brújula con esa bebida
-$$('[data-ir-bebida]').forEach(a => a.addEventListener('click', () => { const i = BEBIDAS.findIndex(b => b.id === a.dataset.irBebida); if (i >= 0) setTimeout(() => irA(i), 350); }));
-pintarFicha(bebidaActual, false);
+$$('[data-ir-bebida]').forEach(a => a.addEventListener('click', () => { const i = BEBIDAS.findIndex(b => b.id === a.dataset.irBebida); if (i >= 0) setTimeout(() => irA(i), 450); }));
 
 // =========================================================
 // FILAS DESLIZABLES: arrastre con el mouse desde cualquier parte
