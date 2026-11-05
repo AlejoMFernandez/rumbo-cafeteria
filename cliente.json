@@ -1,0 +1,1489 @@
+{
+ "$schema": "https://raw.githubusercontent.com/AlejoMFernandez/kit-demos/main/docs/cliente.schema.json",
+ "id": "rumbo-cafeteria",
+ "nombre": "Rumbo Cafetería",
+ "pais": "AR",
+ "idioma": "es",
+ "modo": "demo",
+ "whatsapp": "5491124745284",
+ "instagram": "rumbo.cafeteria",
+ "prefijoPedido": "R",
+ "supabase": {
+  "url": "",
+  "anonKey": ""
+ },
+ "marca": {
+  "logo": "img/logo-verde.svg",
+  "logoPanel": "img/logo-crema.svg",
+  "favicon": "img/favicon.png",
+  "colores": {
+   "fondo": "#FBF6EF",
+   "superficie": "#FFFFFF",
+   "texto": "#10201A",
+   "primario": "#033B22",
+   "acento": "#C9974E",
+   "borde": "#E6D9C6"
+  },
+  "fuentes": {
+   "titulos": "'Playfair Display', Georgia, serif",
+   "texto": "'Onest', system-ui, sans-serif",
+   "googleFonts": ""
+  },
+  "estilo": {
+   "forma": "pildora",
+   "radio": "18px",
+   "sombra": "suave",
+   "borde": "1px",
+   "mayusculas": false
+  }
+ },
+ "modulos": {
+  "carta": true,
+  "carrito": true,
+  "reservas": false,
+  "admin": true
+ },
+ "horarios": {
+  "lun": [
+   [
+    "08:30",
+    "20:00"
+   ]
+  ],
+  "mar": [],
+  "mie": [
+   [
+    "08:30",
+    "20:00"
+   ]
+  ],
+  "jue": [
+   [
+    "08:30",
+    "20:00"
+   ]
+  ],
+  "vie": [
+   [
+    "08:30",
+    "20:00"
+   ]
+  ],
+  "sab": [
+   [
+    "08:30",
+    "20:00"
+   ]
+  ],
+  "dom": [
+   [
+    "08:30",
+    "20:00"
+   ]
+  ]
+ },
+ "pedidos": {
+  "salidas": [
+   "whatsapp",
+   "mercadopago"
+  ],
+  "tipos": [
+   "retiro"
+  ],
+  "retiroHoy": {
+   "cadaMin": 15,
+   "prepMin": 10,
+   "asap": true
+  }
+ },
+ "pagos": {
+  "mercadopago": {
+   "endpoint": "https://kit-demos-amf.vercel.app/api/mp-preference",
+   "modo": "sandbox"
+  }
+ },
+ "textos": {
+  "tuPedido": "Tu pedido",
+  "verPedido": "Tu pedido",
+  "agregar": "Sumar",
+  "carritoVacio": "Todavía no elegiste tu rumbo.",
+  "carritoVacioSub": "Sumá algo de la carta y aparece acá.",
+  "enviarPedido": "Hacer el pedido",
+  "pedidoListo": "Te lo estamos calibrando",
+  "porWhatsapp": "Lo confirmo por WhatsApp",
+  "porWhatsappSub": "Pagás al retirar en Freire 2599"
+ },
+ "carta": {
+  "categorias": [
+   {
+    "id": "cafe",
+    "nombre": "Café"
+   },
+   {
+    "id": "infusiones",
+    "nombre": "Tés y otros"
+   },
+   {
+    "id": "frios",
+    "nombre": "Fríos"
+   },
+   {
+    "id": "promos",
+    "nombre": "Promos"
+   },
+   {
+    "id": "cocina",
+    "nombre": "Nuestra cocina"
+   },
+   {
+    "id": "pasteleria",
+    "nombre": "Pastelería"
+   },
+   {
+    "id": "almuerzos",
+    "nombre": "Almuerzos"
+   }
+  ],
+  "productos": [
+   {
+    "id": "doppio",
+    "categoria": "cafe",
+    "nombre": "Doppio",
+    "descripcion": "Dos shots de espresso.",
+    "precio": 5200,
+    "adicionales": [
+     {
+      "id": "shot",
+      "nombre": "Extra shot de espresso",
+      "precio": 1900
+     }
+    ],
+    "foto": "img/p/doppio.webp"
+   },
+   {
+    "id": "lungo",
+    "categoria": "cafe",
+    "nombre": "Lungo · 90 ml",
+    "descripcion": "Agua caliente a 75° + shot de espresso.",
+    "precio": 5300,
+    "adicionales": [
+     {
+      "id": "shot",
+      "nombre": "Extra shot de espresso",
+      "precio": 1900
+     }
+    ]
+   },
+   {
+    "id": "cortadito",
+    "categoria": "cafe",
+    "nombre": "Cortadito · 115 ml",
+    "descripcion": "Shot de espresso + leche emulsionada.",
+    "precio": 5500,
+    "opciones": [
+     {
+      "id": "leche",
+      "nombre": "Leche",
+      "valores": [
+       {
+        "id": "entera",
+        "nombre": "Entera"
+       },
+       {
+        "id": "avena",
+        "nombre": "Avena Oatly",
+        "precio": 1500
+       },
+       {
+        "id": "almendras",
+        "nombre": "Almendras casera",
+        "precio": 1500
+       }
+      ]
+     }
+    ],
+    "adicionales": [
+     {
+      "id": "shot",
+      "nombre": "Extra shot de espresso",
+      "precio": 1900
+     }
+    ]
+   },
+   {
+    "id": "macchiato",
+    "categoria": "cafe",
+    "nombre": "Macchiato · 90 ml",
+    "descripcion": "Dos shots de espresso + espuma de leche.",
+    "precio": 5800,
+    "opciones": [
+     {
+      "id": "leche",
+      "nombre": "Leche",
+      "valores": [
+       {
+        "id": "entera",
+        "nombre": "Entera"
+       },
+       {
+        "id": "avena",
+        "nombre": "Avena Oatly",
+        "precio": 1500
+       },
+       {
+        "id": "almendras",
+        "nombre": "Almendras casera",
+        "precio": 1500
+       }
+      ]
+     }
+    ],
+    "adicionales": [
+     {
+      "id": "shot",
+      "nombre": "Extra shot de espresso",
+      "precio": 1900
+     }
+    ]
+   },
+   {
+    "id": "magic",
+    "categoria": "cafe",
+    "nombre": "Magic · 115 ml",
+    "descripcion": "Dos shots de espresso + leche emulsionada.",
+    "precio": 5800,
+    "opciones": [
+     {
+      "id": "leche",
+      "nombre": "Leche",
+      "valores": [
+       {
+        "id": "entera",
+        "nombre": "Entera"
+       },
+       {
+        "id": "avena",
+        "nombre": "Avena Oatly",
+        "precio": 1500
+       },
+       {
+        "id": "almendras",
+        "nombre": "Almendras casera",
+        "precio": 1500
+       }
+      ]
+     }
+    ],
+    "adicionales": [
+     {
+      "id": "shot",
+      "nombre": "Extra shot de espresso",
+      "precio": 1900
+     }
+    ]
+   },
+   {
+    "id": "americano",
+    "categoria": "cafe",
+    "nombre": "Americano · 160 ml",
+    "descripcion": "Agua caliente a 75° + dos shots de espresso.",
+    "precio": 5500,
+    "adicionales": [
+     {
+      "id": "shot",
+      "nombre": "Extra shot de espresso",
+      "precio": 1900
+     }
+    ]
+   },
+   {
+    "id": "cappuccino",
+    "categoria": "cafe",
+    "nombre": "Cappuccino · 160 ml",
+    "descripcion": "Shot de espresso + leche emulsionada bien espumosa. Opcional: canela y/o cacao.",
+    "precio": 6000,
+    "opciones": [
+     {
+      "id": "leche",
+      "nombre": "Leche",
+      "valores": [
+       {
+        "id": "entera",
+        "nombre": "Entera"
+       },
+       {
+        "id": "avena",
+        "nombre": "Avena Oatly",
+        "precio": 1500
+       },
+       {
+        "id": "almendras",
+        "nombre": "Almendras casera",
+        "precio": 1500
+       }
+      ]
+     },
+     {
+      "id": "topping",
+      "nombre": "Arriba",
+      "valores": [
+       {
+        "id": "nada",
+        "nombre": "Sin agregados"
+       },
+       {
+        "id": "canela",
+        "nombre": "Canela"
+       },
+       {
+        "id": "cacao",
+        "nombre": "Cacao"
+       },
+       {
+        "id": "ambos",
+        "nombre": "Canela y cacao"
+       }
+      ]
+     }
+    ],
+    "adicionales": [
+     {
+      "id": "shot",
+      "nombre": "Extra shot de espresso",
+      "precio": 1900
+     }
+    ],
+    "foto": "img/p/cappuccino.webp"
+   },
+   {
+    "id": "flat-white",
+    "categoria": "cafe",
+    "nombre": "Flat White · 160 ml",
+    "descripcion": "Dos shots de espresso + leche emulsionada.",
+    "precio": 6500,
+    "etiquetas": [
+     "casa"
+    ],
+    "opciones": [
+     {
+      "id": "leche",
+      "nombre": "Leche",
+      "valores": [
+       {
+        "id": "entera",
+        "nombre": "Entera"
+       },
+       {
+        "id": "avena",
+        "nombre": "Avena Oatly",
+        "precio": 1500
+       },
+       {
+        "id": "almendras",
+        "nombre": "Almendras casera",
+        "precio": 1500
+       }
+      ]
+     }
+    ],
+    "adicionales": [
+     {
+      "id": "shot",
+      "nombre": "Extra shot de espresso",
+      "precio": 1900
+     }
+    ],
+    "foto": "img/p/flat-white.webp"
+   },
+   {
+    "id": "latte",
+    "categoria": "cafe",
+    "nombre": "Latte · 240 ml",
+    "descripcion": "Shot de espresso + leche emulsionada.",
+    "precio": 6500,
+    "opciones": [
+     {
+      "id": "leche",
+      "nombre": "Leche",
+      "valores": [
+       {
+        "id": "entera",
+        "nombre": "Entera"
+       },
+       {
+        "id": "avena",
+        "nombre": "Avena Oatly",
+        "precio": 1500
+       },
+       {
+        "id": "almendras",
+        "nombre": "Almendras casera",
+        "precio": 1500
+       }
+      ]
+     }
+    ],
+    "adicionales": [
+     {
+      "id": "shot",
+      "nombre": "Extra shot de espresso",
+      "precio": 1900
+     }
+    ],
+    "foto": "img/p/latte.webp"
+   },
+   {
+    "id": "latte-doble",
+    "categoria": "cafe",
+    "nombre": "Latte Doble Shot · 240 ml",
+    "descripcion": "Dos shots de espresso + leche emulsionada.",
+    "precio": 6900,
+    "opciones": [
+     {
+      "id": "leche",
+      "nombre": "Leche",
+      "valores": [
+       {
+        "id": "entera",
+        "nombre": "Entera"
+       },
+       {
+        "id": "avena",
+        "nombre": "Avena Oatly",
+        "precio": 1500
+       },
+       {
+        "id": "almendras",
+        "nombre": "Almendras casera",
+        "precio": 1500
+       }
+      ]
+     }
+    ],
+    "adicionales": [
+     {
+      "id": "shot",
+      "nombre": "Extra shot de espresso",
+      "precio": 1900
+     }
+    ]
+   },
+   {
+    "id": "gran-latte",
+    "categoria": "cafe",
+    "nombre": "GRAN Latte · 360 ml",
+    "descripcion": "Para llevar. Dos shots de espresso + leche emulsionada.",
+    "precio": 7200,
+    "opciones": [
+     {
+      "id": "leche",
+      "nombre": "Leche",
+      "valores": [
+       {
+        "id": "entera",
+        "nombre": "Entera"
+       },
+       {
+        "id": "avena",
+        "nombre": "Avena Oatly",
+        "precio": 1500
+       },
+       {
+        "id": "almendras",
+        "nombre": "Almendras casera",
+        "precio": 1500
+       }
+      ]
+     }
+    ],
+    "adicionales": [
+     {
+      "id": "shot",
+      "nombre": "Extra shot de espresso",
+      "precio": 1900
+     }
+    ]
+   },
+   {
+    "id": "moccaccino",
+    "categoria": "cafe",
+    "nombre": "Moccaccino · 240 ml",
+    "descripcion": "Dos shots de espresso + chocolate Fénix al 70 % + cacao + leche emulsionada.",
+    "precio": 7200,
+    "opciones": [
+     {
+      "id": "leche",
+      "nombre": "Leche",
+      "valores": [
+       {
+        "id": "entera",
+        "nombre": "Entera"
+       },
+       {
+        "id": "avena",
+        "nombre": "Avena Oatly",
+        "precio": 1500
+       },
+       {
+        "id": "almendras",
+        "nombre": "Almendras casera",
+        "precio": 1500
+       }
+      ]
+     }
+    ],
+    "adicionales": [
+     {
+      "id": "shot",
+      "nombre": "Extra shot de espresso",
+      "precio": 1900
+     }
+    ]
+   },
+   {
+    "id": "saborizado",
+    "categoria": "cafe",
+    "nombre": "Café Saborizado · 240 ml",
+    "descripcion": "Almíbar especial de estación + leche emulsionada.",
+    "precio": 6700,
+    "opciones": [
+     {
+      "id": "leche",
+      "nombre": "Leche",
+      "valores": [
+       {
+        "id": "entera",
+        "nombre": "Entera"
+       },
+       {
+        "id": "avena",
+        "nombre": "Avena Oatly",
+        "precio": 1500
+       },
+       {
+        "id": "almendras",
+        "nombre": "Almendras casera",
+        "precio": 1500
+       }
+      ]
+     }
+    ],
+    "adicionales": [
+     {
+      "id": "shot",
+      "nombre": "Extra shot de espresso",
+      "precio": 1900
+     }
+    ]
+   },
+   {
+    "id": "filtrado",
+    "categoria": "cafe",
+    "nombre": "Café Filtrado",
+    "descripcion": "V60 u Origami. 220 ml (1 taza) o 440 ml (2 tazas).",
+    "precio": null,
+    "variantes": [
+     {
+      "id": "1",
+      "nombre": "1 taza · 220 ml",
+      "precio": 7500
+     },
+     {
+      "id": "2",
+      "nombre": "2 tazas · 440 ml",
+      "precio": 12000
+     }
+    ],
+    "opciones": [
+     {
+      "id": "metodo",
+      "nombre": "Método",
+      "valores": [
+       {
+        "id": "v60",
+        "nombre": "V60"
+       },
+       {
+        "id": "origami",
+        "nombre": "Origami"
+       }
+      ]
+     }
+    ],
+    "foto": "img/p/filtrado.webp"
+   },
+   {
+    "id": "jarrita",
+    "categoria": "cafe",
+    "nombre": "Jarrita de leche fría o caliente",
+    "descripcion": "Para acompañar tu café.",
+    "precio": 700
+   },
+   {
+    "id": "te-verde",
+    "categoria": "infusiones",
+    "nombre": "Té Verde · 240 ml",
+    "descripcion": "Hebras de origen misionero con notas a vegetales, frutos secos y raíces. Pei Chen.",
+    "precio": 4700
+   },
+   {
+    "id": "te-negro",
+    "categoria": "infusiones",
+    "nombre": "Té Negro · 240 ml",
+    "descripcion": "Hebras de origen indio con notas frutales, amaderadas y hierbas frescas. Pei Chen.",
+    "precio": 4700
+   },
+   {
+    "id": "te-chai",
+    "categoria": "infusiones",
+    "nombre": "Té Chai Blend Rumbo · 240 ml",
+    "descripcion": "Blend exclusivo de té negro indio con pimienta rosa, jengibre, polen de té, cardamomo y lima.",
+    "precio": 4900,
+    "etiquetas": [
+     "casa"
+    ]
+   },
+   {
+    "id": "te-matcha",
+    "categoria": "infusiones",
+    "nombre": "Té Matcha · 240 ml",
+    "descripcion": "Té verde japonés de segunda cosecha, en polvo de alta calidad.",
+    "precio": 6800
+   },
+   {
+    "id": "te-curcuma",
+    "categoria": "infusiones",
+    "nombre": "Té Cúrcuma · 240 ml",
+    "descripcion": "Infusión renovadora y antioxidante: cúrcuma + jengibre + pimienta + limón.",
+    "precio": 4800
+   },
+   {
+    "id": "matcha-latte",
+    "categoria": "infusiones",
+    "nombre": "Matcha Latte · 240 ml",
+    "descripcion": "Té verde en polvo japonés de segunda cosecha + leche emulsionada.",
+    "precio": 7000,
+    "opciones": [
+     {
+      "id": "leche",
+      "nombre": "Leche",
+      "valores": [
+       {
+        "id": "entera",
+        "nombre": "Entera"
+       },
+       {
+        "id": "avena",
+        "nombre": "Avena Oatly",
+        "precio": 1500
+       },
+       {
+        "id": "almendras",
+        "nombre": "Almendras casera",
+        "precio": 1500
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "chai-latte",
+    "categoria": "infusiones",
+    "nombre": "Chai Latte · 240 ml",
+    "descripcion": "Reducción de blend exclusivo a base de té negro especiado + leche emulsionada.",
+    "precio": 6300,
+    "opciones": [
+     {
+      "id": "leche",
+      "nombre": "Leche",
+      "valores": [
+       {
+        "id": "entera",
+        "nombre": "Entera"
+       },
+       {
+        "id": "avena",
+        "nombre": "Avena Oatly",
+        "precio": 1500
+       },
+       {
+        "id": "almendras",
+        "nombre": "Almendras casera",
+        "precio": 1500
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "choco-caliente",
+    "categoria": "infusiones",
+    "nombre": "Choco Caliente · 240 ml",
+    "descripcion": "Chocolate Fénix al 70 % + cacao + leche emulsionada.",
+    "precio": 6200,
+    "opciones": [
+     {
+      "id": "leche",
+      "nombre": "Leche",
+      "valores": [
+       {
+        "id": "entera",
+        "nombre": "Entera"
+       },
+       {
+        "id": "avena",
+        "nombre": "Avena Oatly",
+        "precio": 1500
+       },
+       {
+        "id": "almendras",
+        "nombre": "Almendras casera",
+        "precio": 1500
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "americano-frio",
+    "categoria": "frios",
+    "nombre": "Americano Frío · 300 ml",
+    "descripcion": "Agua + dos shots de espresso + hielo.",
+    "precio": 5500
+   },
+   {
+    "id": "latte-frio",
+    "categoria": "frios",
+    "nombre": "Latte / Flat Frío · 300 ml",
+    "descripcion": "Uno o dos shots de espresso + leche emulsionada + hielo.",
+    "precio": 6500,
+    "opciones": [
+     {
+      "id": "estilo",
+      "nombre": "Estilo",
+      "valores": [
+       {
+        "id": "latte",
+        "nombre": "Latte (1 shot)"
+       },
+       {
+        "id": "flat",
+        "nombre": "Flat (2 shots)"
+       }
+      ]
+     },
+     {
+      "id": "leche",
+      "nombre": "Leche",
+      "valores": [
+       {
+        "id": "entera",
+        "nombre": "Entera"
+       },
+       {
+        "id": "avena",
+        "nombre": "Avena Oatly",
+        "precio": 1500
+       },
+       {
+        "id": "almendras",
+        "nombre": "Almendras casera",
+        "precio": 1500
+       }
+      ]
+     }
+    ],
+    "foto": "img/p/latte-frio.webp"
+   },
+   {
+    "id": "mocca-frio",
+    "categoria": "frios",
+    "nombre": "Mocca Frío · 300 ml",
+    "descripcion": "Espresso + leche emulsionada + chocolate Fénix al 70 % + cacao + hielo.",
+    "precio": 7200,
+    "opciones": [
+     {
+      "id": "leche",
+      "nombre": "Leche",
+      "valores": [
+       {
+        "id": "entera",
+        "nombre": "Entera"
+       },
+       {
+        "id": "avena",
+        "nombre": "Avena Oatly",
+        "precio": 1500
+       },
+       {
+        "id": "almendras",
+        "nombre": "Almendras casera",
+        "precio": 1500
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "te-frio",
+    "categoria": "frios",
+    "nombre": "Té Frío Pei Chen · 400 ml",
+    "descripcion": "Hebras de té de origen a elección + hielo.",
+    "precio": 4800
+   },
+   {
+    "id": "exprimido",
+    "categoria": "frios",
+    "nombre": "Exprimido de Naranja · 400 ml",
+    "descripcion": "Jugo de naranja natural recién exprimido.",
+    "precio": 6500
+   },
+   {
+    "id": "limonada-menta",
+    "categoria": "frios",
+    "nombre": "Limonada de Menta y Jengibre · 400 ml",
+    "descripcion": "Jugo natural de limón + agua de menta + rodaja de jengibre + hielo.",
+    "precio": 5300
+   },
+   {
+    "id": "limonada-frutos-rojos",
+    "categoria": "frios",
+    "nombre": "Limonada de Frutos Rojos · 400 ml",
+    "descripcion": "Jugo de frutos rojos + jugo natural de limón + agua de menta + hielo.",
+    "precio": 5500,
+    "foto": "img/p/limonada-frutos-rojos.webp"
+   },
+   {
+    "id": "pomelada",
+    "categoria": "frios",
+    "nombre": "Pomelada · 400 ml",
+    "descripcion": "Jugo natural de pomelo + limón + almíbar de romero + agua con gas + hielo.",
+    "precio": 5900
+   },
+   {
+    "id": "licuado",
+    "categoria": "frios",
+    "nombre": "Licuado · 400 ml",
+    "descripcion": "Con la fruta que haya ese día (consultar frutas disponibles).",
+    "precio": 6300
+   },
+   {
+    "id": "agua",
+    "categoria": "frios",
+    "nombre": "Agua con o sin gas · 500 ml",
+    "descripcion": "",
+    "precio": 3800,
+    "opciones": [
+     {
+      "id": "gas",
+      "nombre": "Agua",
+      "valores": [
+       {
+        "id": "sin",
+        "nombre": "Sin gas"
+       },
+       {
+        "id": "con",
+        "nombre": "Con gas"
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "combo-medialunas",
+    "categoria": "promos",
+    "nombre": "Café + 2 medialunas",
+    "descripcion": "Café o té a elección + dos medialunas calentitas.",
+    "precio": 11000,
+    "opciones": [
+     {
+      "id": "bebida",
+      "nombre": "Tu café o té",
+      "valores": [
+       {
+        "id": "doppio",
+        "nombre": "Doppio"
+       },
+       {
+        "id": "flat",
+        "nombre": "Flat White"
+       },
+       {
+        "id": "capu",
+        "nombre": "Cappuccino"
+       },
+       {
+        "id": "americano",
+        "nombre": "Americano"
+       },
+       {
+        "id": "te",
+        "nombre": "Té en hebras"
+       }
+      ]
+     }
+    ],
+    "etiquetas": [
+     "casa"
+    ]
+   },
+   {
+    "id": "combo-tostadas",
+    "categoria": "promos",
+    "nombre": "Café + tostadas",
+    "descripcion": "Café o té a elección + dos unidades de pan de masa madre con dips de queso crema y mermelada.",
+    "precio": 10000,
+    "opciones": [
+     {
+      "id": "bebida",
+      "nombre": "Tu café o té",
+      "valores": [
+       {
+        "id": "doppio",
+        "nombre": "Doppio"
+       },
+       {
+        "id": "flat",
+        "nombre": "Flat White"
+       },
+       {
+        "id": "capu",
+        "nombre": "Cappuccino"
+       },
+       {
+        "id": "americano",
+        "nombre": "Americano"
+       },
+       {
+        "id": "te",
+        "nombre": "Té en hebras"
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "combo-chipa",
+    "categoria": "promos",
+    "nombre": "Café + chipá prensado",
+    "descripcion": "Café o té a elección + nuestro chipá relleno de jamón natural y mix de quesos.",
+    "precio": 12500,
+    "opciones": [
+     {
+      "id": "bebida",
+      "nombre": "Tu café o té",
+      "valores": [
+       {
+        "id": "doppio",
+        "nombre": "Doppio"
+       },
+       {
+        "id": "flat",
+        "nombre": "Flat White"
+       },
+       {
+        "id": "capu",
+        "nombre": "Cappuccino"
+       },
+       {
+        "id": "americano",
+        "nombre": "Americano"
+       },
+       {
+        "id": "te",
+        "nombre": "Té en hebras"
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "toston-palta",
+    "categoria": "cocina",
+    "nombre": "Tostón de Palta",
+    "descripcion": "En pan de masa madre, queso crema con castañas de cajú tostadas, cebollas encurtidas, tomates cherry, huevo mollet y mix de semillas.",
+    "precio": 15500,
+    "etiquetas": [
+     "casa"
+    ],
+    "opciones": [
+     {
+      "id": "picante",
+      "nombre": "Picante Lao Gan Ma",
+      "valores": [
+       {
+        "id": "sin",
+        "nombre": "Sin picante"
+       },
+       {
+        "id": "con",
+        "nombre": "Con picante"
+       }
+      ]
+     }
+    ],
+    "foto": "img/p/toston-palta.webp"
+   },
+   {
+    "id": "toston-hummus",
+    "categoria": "cocina",
+    "nombre": "Tostón de Hummus por @mili.plants",
+    "descripcion": "En pan de masa madre, con tomates confitados, rúcula, mix de semillas y almendras trozadas.",
+    "precio": 11800,
+    "etiquetas": [
+     "vegano"
+    ],
+    "opciones": [
+     {
+      "id": "extra",
+      "nombre": "Para darle un toque",
+      "valores": [
+       {
+        "id": "nada",
+        "nombre": "Sin extras"
+       },
+       {
+        "id": "picante",
+        "nombre": "Picante Lao Gan Ma"
+       },
+       {
+        "id": "aceto",
+        "nombre": "Aceto balsámico"
+       }
+      ]
+     }
+    ],
+    "adicionales": [
+     {
+      "id": "huevo",
+      "nombre": "Huevo mollet",
+      "precio": 1500
+     },
+     {
+      "id": "hummus",
+      "nombre": "Extra hummus",
+      "precio": 1200
+     }
+    ],
+    "foto": "img/p/toston-hummus.webp"
+   },
+   {
+    "id": "tostadas",
+    "categoria": "cocina",
+    "nombre": "Tostadas de pan de masa madre",
+    "descripcion": "Dos unidades, con dips de queso crema y mermelada de frutos rojos casera.",
+    "precio": 6600,
+    "adicionales": [
+     {
+      "id": "huevo",
+      "nombre": "Huevo mollet",
+      "precio": 1500
+     }
+    ]
+   },
+   {
+    "id": "tostado-prensado",
+    "categoria": "cocina",
+    "nombre": "Tostado prensado",
+    "descripcion": "En pan de masa madre, con manteca de hierbas, jamón cocido natural y mix de quesos Sardo y Pategrás.",
+    "precio": 8800,
+    "opciones": [
+     {
+      "id": "relleno",
+      "nombre": "Relleno",
+      "valores": [
+       {
+        "id": "jyq",
+        "nombre": "Jamón y quesos"
+       },
+       {
+        "id": "veg",
+        "nombre": "Vegetariano"
+       }
+      ]
+     }
+    ],
+    "foto": "img/p/tostado-prensado.webp"
+   },
+   {
+    "id": "medialuna-prensada",
+    "categoria": "cocina",
+    "nombre": "Medialuna prensada",
+    "descripcion": "Con jamón cocido natural y mix de quesos.",
+    "precio": 6500,
+    "opciones": [
+     {
+      "id": "relleno",
+      "nombre": "Relleno",
+      "valores": [
+       {
+        "id": "jyq",
+        "nombre": "Jamón y quesos"
+       },
+       {
+        "id": "veg",
+        "nombre": "Vegetariano"
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "chipa-prensado",
+    "categoria": "cocina",
+    "nombre": "Chipá prensado",
+    "descripcion": "Con jamón cocido natural y mix de quesos.",
+    "precio": 7500
+   },
+   {
+    "id": "yogurt-granola",
+    "categoria": "cocina",
+    "nombre": "Yogurt con Granola",
+    "descripcion": "De avena arrollada, frutos secos, mix de semillas y frutas frescas de estación, sobre mermelada casera de frutos rojos.",
+    "precio": 13500,
+    "etiquetas": [
+     "veggie"
+    ]
+   },
+   {
+    "id": "chipa",
+    "categoria": "pasteleria",
+    "nombre": "Chipá",
+    "descripcion": "",
+    "precio": 4800
+   },
+   {
+    "id": "budin",
+    "categoria": "pasteleria",
+    "nombre": "Porción de Budín",
+    "descripcion": "",
+    "precio": 6100
+   },
+   {
+    "id": "medialuna",
+    "categoria": "pasteleria",
+    "nombre": "Medialuna de Manteca",
+    "descripcion": "",
+    "precio": 3000
+   },
+   {
+    "id": "croissant",
+    "categoria": "pasteleria",
+    "nombre": "Croissant",
+    "descripcion": "",
+    "precio": 4800,
+    "foto": "img/p/croissant.webp"
+   },
+   {
+    "id": "roll-canela",
+    "categoria": "pasteleria",
+    "nombre": "Roll de Canela",
+    "descripcion": "",
+    "precio": 7400,
+    "foto": "img/p/roll-canela.webp"
+   },
+   {
+    "id": "alfajor-pistacho",
+    "categoria": "pasteleria",
+    "nombre": "Alfajor de Pistachos y Choco Blanco",
+    "descripcion": "",
+    "precio": 7800
+   },
+   {
+    "id": "alfajor-nuez-ddl",
+    "categoria": "pasteleria",
+    "nombre": "Alfajor de Nuez y Dulce de Leche",
+    "descripcion": "",
+    "precio": 6200
+   },
+   {
+    "id": "alfajor-dubai",
+    "categoria": "pasteleria",
+    "nombre": "Alfajor Dubai",
+    "descripcion": "",
+    "precio": 7200
+   },
+   {
+    "id": "cookie-nutella",
+    "categoria": "pasteleria",
+    "nombre": "Cookie de Chocolate y Nutella",
+    "descripcion": "",
+    "precio": 6100
+   },
+   {
+    "id": "cookie-limon",
+    "categoria": "pasteleria",
+    "nombre": "Cookie de Limón y Choco Blanco",
+    "descripcion": "",
+    "precio": 6100
+   },
+   {
+    "id": "cookie-red-velvet",
+    "categoria": "pasteleria",
+    "nombre": "Cookie Red Velvet NY",
+    "descripcion": "",
+    "precio": 6400
+   },
+   {
+    "id": "cookie-manhattan",
+    "categoria": "pasteleria",
+    "nombre": "Cookie Choco Rellena Manhattan",
+    "descripcion": "",
+    "precio": 7700
+   },
+   {
+    "id": "brownie",
+    "categoria": "pasteleria",
+    "nombre": "Brownie",
+    "descripcion": "",
+    "precio": 8400,
+    "etiquetas": [
+     "sintacc"
+    ]
+   },
+   {
+    "id": "brownie-vegano",
+    "categoria": "pasteleria",
+    "nombre": "Brownie Vegano",
+    "descripcion": "",
+    "precio": 7300,
+    "etiquetas": [
+     "vegano"
+    ]
+   },
+   {
+    "id": "cuadrado-limon",
+    "categoria": "pasteleria",
+    "nombre": "Cuadrado de Limón",
+    "descripcion": "",
+    "precio": 8400,
+    "etiquetas": [
+     "sintacc"
+    ]
+   },
+   {
+    "id": "alfajor-nuez",
+    "categoria": "pasteleria",
+    "nombre": "Alfajor de Nuez",
+    "descripcion": "",
+    "precio": 8400,
+    "etiquetas": [
+     "sintacc"
+    ]
+   },
+   {
+    "id": "torta-semana",
+    "categoria": "pasteleria",
+    "nombre": "Torta de la semana",
+    "descripcion": "Preguntanos cuál es la de esta semana.",
+    "precio": null
+   },
+   {
+    "id": "sandwich-pollo",
+    "categoria": "almuerzos",
+    "nombre": "Sándwich de pollo sabroso",
+    "descripcion": "Rebanado en láminas, en pan brioche, con queso crema de cajú casero, palta pisada con limón y sal, rúcula y tomates cherry asados.",
+    "precio": 14000
+   },
+   {
+    "id": "pastel-papa",
+    "categoria": "almuerzos",
+    "nombre": "Pastel de papa de bondiola",
+    "descripcion": "El clásico, reinterpretado con bondiola de cerdo desmechada en cocción lenta, vegetales, especias y gratinado de queso sardo.",
+    "precio": 14000,
+    "etiquetas": [
+     "casa"
+    ]
+   },
+   {
+    "id": "bondiola-vegetales",
+    "categoria": "almuerzos",
+    "nombre": "Bondiola desmechada con vegetales asados",
+    "descripcion": "Calabaza, batata, morrones y cebolla morada asados, choclo salteado a la manteca y bondiola en cocción lenta.",
+    "precio": 14000
+   },
+   {
+    "id": "wok",
+    "categoria": "almuerzos",
+    "nombre": "Wok de pollo y vegetales",
+    "descripcion": "Arroz, pollo grillado, zucchini, zanahoria, morrones, cebolla y repollo morado, con salsa de soja y semillas de sésamo y girasol.",
+    "precio": 14000
+   },
+   {
+    "id": "wrap",
+    "categoria": "almuerzos",
+    "nombre": "Wrap de pollo o bondiola",
+    "descripcion": "Desmechado, con calabaza y repollo morado asados, pepinillos (el de pollo con queso crema) y papas cuña.",
+    "precio": 14000,
+    "opciones": [
+     {
+      "id": "relleno",
+      "nombre": "Relleno",
+      "valores": [
+       {
+        "id": "pollo",
+        "nombre": "Pollo"
+       },
+       {
+        "id": "bondiola",
+        "nombre": "Bondiola"
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "almuerzo-bebida",
+    "categoria": "almuerzos",
+    "nombre": "Almuerzo + bebida",
+    "descripcion": "Cualquier plato + agua o limonada.",
+    "precio": 17000,
+    "opciones": [
+     {
+      "id": "plato",
+      "nombre": "Plato",
+      "valores": [
+       {
+        "id": "sandwich",
+        "nombre": "Sándwich de pollo"
+       },
+       {
+        "id": "pastel",
+        "nombre": "Pastel de papa de bondiola"
+       },
+       {
+        "id": "bondiola",
+        "nombre": "Bondiola con vegetales asados"
+       },
+       {
+        "id": "wok",
+        "nombre": "Wok de pollo y vegetales"
+       },
+       {
+        "id": "wrap-pollo",
+        "nombre": "Wrap de pollo"
+       },
+       {
+        "id": "wrap-bondiola",
+        "nombre": "Wrap de bondiola"
+       }
+      ]
+     },
+     {
+      "id": "bebida",
+      "nombre": "Bebida",
+      "valores": [
+       {
+        "id": "agua-con",
+        "nombre": "Agua con gas"
+       },
+       {
+        "id": "agua-sin",
+        "nombre": "Agua sin gas"
+       },
+       {
+        "id": "lim-menta",
+        "nombre": "Limonada de menta y jengibre"
+       },
+       {
+        "id": "lim-rojos",
+        "nombre": "Limonada de frutos rojos"
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "almuerzo-bebida-cafe",
+    "categoria": "almuerzos",
+    "nombre": "Almuerzo + bebida + café",
+    "descripcion": "Cualquier plato + agua o limonada + café.",
+    "precio": 20000,
+    "opciones": [
+     {
+      "id": "plato",
+      "nombre": "Plato",
+      "valores": [
+       {
+        "id": "sandwich",
+        "nombre": "Sándwich de pollo"
+       },
+       {
+        "id": "pastel",
+        "nombre": "Pastel de papa de bondiola"
+       },
+       {
+        "id": "bondiola",
+        "nombre": "Bondiola con vegetales asados"
+       },
+       {
+        "id": "wok",
+        "nombre": "Wok de pollo y vegetales"
+       },
+       {
+        "id": "wrap-pollo",
+        "nombre": "Wrap de pollo"
+       },
+       {
+        "id": "wrap-bondiola",
+        "nombre": "Wrap de bondiola"
+       }
+      ]
+     },
+     {
+      "id": "bebida",
+      "nombre": "Bebida",
+      "valores": [
+       {
+        "id": "agua-con",
+        "nombre": "Agua con gas"
+       },
+       {
+        "id": "agua-sin",
+        "nombre": "Agua sin gas"
+       },
+       {
+        "id": "lim-menta",
+        "nombre": "Limonada de menta y jengibre"
+       },
+       {
+        "id": "lim-rojos",
+        "nombre": "Limonada de frutos rojos"
+       }
+      ]
+     },
+     {
+      "id": "cafe",
+      "nombre": "Café",
+      "valores": [
+       {
+        "id": "doppio",
+        "nombre": "Doppio"
+       },
+       {
+        "id": "americano",
+        "nombre": "Americano"
+       },
+       {
+        "id": "capu",
+        "nombre": "Cappuccino"
+       },
+       {
+        "id": "flat",
+        "nombre": "Flat White"
+       },
+       {
+        "id": "latte",
+        "nombre": "Latte"
+       }
+      ]
+     }
+    ],
+    "etiquetas": [
+     "casa"
+    ]
+   }
+  ]
+ }
+}

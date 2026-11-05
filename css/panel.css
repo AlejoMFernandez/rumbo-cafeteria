@@ -1,0 +1,3 @@
+.kad-top { background: #033B22; color: #F2E7DB; }
+@media (min-width: 900px) { .kad-nav__a.is-on { color: #F2E7DB; border-bottom-color: #C9974E; } }
+.kad-brand img { max-height: 42px; width: auto; }

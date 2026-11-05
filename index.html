@@ -1,0 +1,330 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Rumbo Cafetería · Café de especialidad en Coghlan</title>
+<meta name="description" content="Pedí tu café para retirar en Freire 2599, Coghlan. Carta completa con precios, filtrados V60 y Origami, tostones, pastelería y almuerzos.">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Rumbo Cafetería">
+<meta property="og:url" content="https://rumbo-cafeteria.vercel.app/">
+<meta property="og:title" content="Rumbo Cafetería · Pedí para retirar en Coghlan">
+<meta property="og:description" content="Elegí de la carta, decinos a qué hora pasás y te lo calibramos. Freire 2599.">
+<meta property="og:image" content="https://rumbo-cafeteria.vercel.app/img/og.jpg?v=1">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:type" content="image/jpeg">
+<meta property="og:image:alt" content="Rumbo Cafetería · Tu café, listo para retirar">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://rumbo-cafeteria.vercel.app/img/og.jpg?v=1">
+<meta name="theme-color" content="#0B140E">
+<link rel="icon" href="img/favicon.png">
+<link rel="apple-touch-icon" href="img/apple-touch-icon.png">
+<script>
+  (function () { var d = document.documentElement; d.classList.add('js');
+    if (!matchMedia('(prefers-reduced-motion: reduce)').matches) d.classList.add('con-intro'); })();
+</script>
+<link rel="preload" href="fonts/playfair-display-latin-500-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/onest-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" as="image" href="img/h/hero-m.webp" imagesrcset="img/h/hero-m.webp 900w, img/h/hero-m-lg.webp 1300w" imagesizes="100vw" media="(max-width: 899px)">
+<link rel="preload" as="image" href="img/h/hero-d.webp" imagesrcset="img/h/hero-d.webp 1100w, img/h/hero-d-lg.webp 1600w" imagesizes="55vw" media="(min-width: 900px)">
+<link rel="stylesheet" href="css/fuentes.css?v=1">
+<link rel="stylesheet" href="kit/kit.css?v=1">
+<link rel="stylesheet" href="css/rumbo.css?v=1">
+</head>
+<body>
+
+<div class="intro" aria-hidden="true">
+  <span class="intro__hoja intro__hoja--i"></span>
+  <span class="intro__hoja intro__hoja--d"></span>
+  <div class="intro__c">
+    <svg class="intro__traza" viewBox="0 0 600 200" fill="none"><path pathLength="1" d="M40 150 C110 175 140 70 200 82 C262 94 226 160 288 152 C350 144 330 58 392 64 C452 70 430 140 492 132 C530 127 548 108 560 96"/></svg>
+    <span class="intro__punto"></span>
+    <div class="intro__logo"><img src="img/logo-dorado.svg" alt="" width="520" height="230"><i class="intro__pluma"></i></div>
+  </div>
+</div>
+
+<a class="saltar" href="#carta">Ir a la carta</a>
+
+<header class="top" id="top">
+  <div class="top__in">
+    <a class="marca" href="#inicio" aria-label="Rumbo Cafetería, inicio"><img src="img/logo-dorado.svg" alt="" width="520" height="230"></a>
+    <nav class="nav" aria-label="Secciones">
+      <a href="#brujula">Tu bebida</a><a href="#carta">Carta</a><a href="#promos">Promos</a><a href="#local">El local</a><a href="#donde">Cómo llegar</a>
+    </nav>
+    <div class="top__acc">
+      <button type="button" class="top__carro" data-kit-open="carrito" data-kit-target aria-label="Ver tu pedido">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 8h14l-1.3 11.1a2 2 0 0 1-2 1.9H8.3a2 2 0 0 1-2-1.9L5 8Z"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/></svg>
+        <span class="solo-d">Tu pedido</span><b class="top__n" hidden>0</b>
+      </button>
+      <button type="button" class="top__menu" aria-label="Abrir menú" aria-expanded="false" aria-controls="menu-m">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 8h16M4 16h16"/></svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<div class="menu-m" id="menu-m" hidden>
+  <nav aria-label="Menú">
+    <a href="#brujula">Tu bebida</a><a href="#carta">Carta</a><a href="#promos">Promos</a><a href="#local">El local</a><a href="#donde">Cómo llegar</a>
+  </nav>
+  <p class="menu-m__pie">Freire 2599, Coghlan · 8:30 a 20:00 hs · martes cerrado</p>
+</div>
+
+<main id="inicio">
+
+  <!-- HERO -->
+  <section class="hero" aria-labelledby="hero-t">
+    <figure class="hero__foto">
+      <picture>
+        <source media="(min-width: 900px)" srcset="img/h/hero-d.webp 1100w, img/h/hero-d-lg.webp 1600w" sizes="55vw" width="1600" height="1079">
+        <img src="img/h/hero-m.webp" srcset="img/h/hero-m.webp 900w, img/h/hero-m-lg.webp 1300w" sizes="100vw" width="1300" height="1039" alt="La caja de luz de Rumbo encendida de noche en la esquina de Freire" fetchpriority="high" decoding="async">
+      </picture>
+    </figure>
+    <figure class="hero__arco hero__arco--a solo-d"><img src="img/h/toston.webp" width="700" height="933" alt="Tostón de palta con huevo mollet" decoding="async"></figure>
+    <figure class="hero__arco hero__arco--b solo-d"><img src="img/h/filtrado.webp" width="640" height="1136" alt="Café filtrado servido en vaso" decoding="async"></figure>
+    <svg class="hero__ruta solo-d" viewBox="0 0 400 200" fill="none" aria-hidden="true"><path pathLength="1" d="M10 40 C60 -10 130 10 150 70 C170 130 260 120 330 160"/><circle cx="330" cy="160" r="6"/></svg>
+    <span class="hero__pie hero__pie--a solo-d">Tostón de palta · <b data-precio="toston-palta">$15.500</b></span>
+    <span class="hero__pie hero__pie--b solo-d">Filtrado V60 · <b data-precio="filtrado">$7.500</b></span>
+
+    <div class="hero__txt">
+      <p class="hero__kicker"><span>Rumbo Cafetería</span><span>Coghlan</span></p>
+      <h1 class="hero__t" id="hero-t"><span class="ln"><span>¿Para qué bebida</span></span> <span class="ln"><span><i>estás hoy?</i></span></span></h1>
+      <p class="hero__d">Doppio, flat white, filtrado en V60 u Origami. Elegí la tuya, sumá algo rico y pasá a buscarla: te la calibramos antes de que llegues.</p>
+      <div class="hero__chips" aria-label="Bebidas para elegir">
+        <a class="chip-b" href="#brujula" data-ir-bebida="flat-white">Flat white <b data-precio="flat-white">$6.500</b></a>
+        <a class="chip-b" href="#brujula" data-ir-bebida="filtrado">Filtrado V60</a>
+        <a class="chip-b" href="#brujula" data-ir-bebida="matcha-latte">Matcha latte</a>
+      </div>
+      <div class="hero__ctas">
+        <a class="btn btn--oro" href="#carta">Armá tu pedido</a>
+        <a class="btn btn--linea" href="#brujula">Elegí tu bebida</a>
+      </div>
+      <p class="hero__dato"><span class="abierto" data-abierto><i></i><span>8:30 a 20:00 hs</span></span><span class="sep">·</span><span>Martes cerrado</span><span class="sep">·</span><span>Freire 2599</span></p>
+    </div>
+  </section>
+
+  <!-- CINTA -->
+  <div class="cinta" aria-label="Rumbo en números">
+    <div class="cinta__pista">
+      <p class="cinta__set"><span>Nominado The Best Coffee Shops Argentina 2026</span><i></i><span>4,7 en Google · 281 reseñas</span><i></i><span>No hacemos café. Lo calibramos.</span><i></i><span>Pedí y retirá en Freire 2599</span><i></i></p>
+      <p class="cinta__set" aria-hidden="true"><span>Nominado The Best Coffee Shops Argentina 2026</span><i></i><span>4,7 en Google · 281 reseñas</span><i></i><span>No hacemos café. Lo calibramos.</span><i></i><span>Pedí y retirá en Freire 2599</span><i></i></p>
+    </div>
+  </div>
+
+  <!-- BRÚJULA -->
+  <section class="brujula" id="brujula" aria-labelledby="bru-t">
+    <div class="cont brujula__in">
+      <header class="sec-cab sec-cab--claro rv">
+        <p class="kicker">La brújula de Rumbo</p>
+        <h2 class="sec-t" id="bru-t">¿Para qué bebida estás hoy?</h2>
+        <svg class="subraya" viewBox="0 0 300 20" aria-hidden="true"><path pathLength="1" d="M2 14 C60 18 90 4 140 8 C190 12 220 18 298 6"/></svg>
+        <p class="sec-d">Girá la brújula o tocá una bebida. Te contamos qué lleva, cuánto sale y la sumás a tu pedido para retirar.</p>
+      </header>
+
+      <div class="brujula__juego">
+        <div class="dial rv" role="group" aria-label="Brújula de bebidas: elegí una">
+          <div class="dial__aro" aria-hidden="true">
+            <svg viewBox="0 0 400 400">
+              <circle class="dial__c1" cx="200" cy="200" r="194"/>
+              <circle class="dial__c2" cx="200" cy="200" r="132"/>
+              <g class="dial__marcas"></g>
+            </svg>
+          </div>
+          <div class="dial__aguja" aria-hidden="true"><span class="dial__punta"></span><span class="dial__cola"></span></div>
+          <span class="dial__centro" aria-hidden="true"></span>
+          <div class="dial__puntos"></div>
+        </div>
+
+        <article class="ficha rv" aria-live="polite">
+          <div class="ficha__foto"><img src="img/p/flat-white.webp" width="900" height="900" alt="" decoding="async" loading="lazy"><span class="ficha__taza" aria-hidden="true" hidden></span></div>
+          <div class="ficha__txt">
+            <p class="ficha__k">Tu rumbo de hoy</p>
+            <h3 class="ficha__n">Flat White</h3>
+            <p class="ficha__ml">160 ml</p>
+            <p class="ficha__d">Dos shots de espresso + leche emulsionada.</p>
+            <div class="ficha__pie">
+              <b class="ficha__p">$6.500</b>
+              <button type="button" class="btn btn--oro ficha__sumar" data-calibrar="flat-white">Sumar</button>
+            </div>
+            <p class="ficha__nota">Leche de avena o almendras y extra shot, al sumarla.</p>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- CARTA -->
+  <section class="carta" id="carta" aria-labelledby="carta-t">
+    <div class="cont">
+      <header class="sec-cab rv">
+        <p class="kicker">Para tomar acá o retirar</p>
+        <h2 class="sec-t" id="carta-t">Nuestra carta</h2>
+        <svg class="subraya" viewBox="0 0 300 20" aria-hidden="true"><path pathLength="1" d="M2 14 C60 18 90 4 140 8 C190 12 220 18 298 6"/></svg>
+        <p class="sec-d">Todo se puede pedir para retirar. Elegís, nos decís a qué hora pasás y el pedido nos llega ordenado.</p>
+      </header>
+
+      <div class="carta__grid">
+        <div class="carta__head">
+          <h3 class="carta__sec">Café</h3>
+          <p class="carta__meta">15 opciones</p>
+        </div>
+        <div data-kit="carta" id="carta-principal" class="carta__kit"></div>
+        <nav class="carta__nav" aria-label="Secciones de la carta">
+          <button type="button" class="carta__mover" data-carta-mover="-1"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 6l-6 6 6 6"/></svg><span data-carta-prev>Anterior</span></button>
+          <button type="button" class="carta__mover carta__mover--sig" data-carta-mover="1"><span data-carta-next>Siguiente</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></button>
+        </nav>
+
+        <aside class="carta__aside" aria-label="Tu pedido">
+          <figure class="aside__foto solo-d">
+            <div class="aside__img"><img src="img/p/latte.webp" width="900" height="900" alt="Latte" decoding="async" loading="lazy"></div>
+            <figcaption>Latte</figcaption>
+          </figure>
+
+          <div class="tk" data-ticket>
+            <div class="tk__papel">
+              <img class="tk__logo" src="img/logo-verde.svg" width="520" height="230" alt="Rumbo Cafetería">
+              <p class="tk__k">Pedido para retirar · Freire 2599</p>
+              <ul class="tk__items" data-tk-items></ul>
+              <p class="tk__vacio" data-tk-vacio>Todavía no elegiste tu rumbo. Sumá algo de la carta y mirá cómo nos llega.</p>
+              <div class="tk__tot" data-tk-tot hidden><span>Total</span><b data-tk-total>$0</b></div>
+            </div>
+            <div class="tk__wa">
+              <p class="tk__wa-k"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 20l1.3-3.8A8 8 0 1 1 8 19z"/></svg>Así le llega a Rumbo por WhatsApp</p>
+              <p class="tk__burbuja" data-tk-msg>Hola Rumbo, quiero retirar:<br>…</p>
+            </div>
+            <button type="button" class="btn btn--verde tk__ir" data-kit-open="carrito" disabled data-tk-ir>Hacer el pedido</button>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROMOS -->
+  <section class="promos" id="promos" aria-labelledby="promos-t">
+    <div class="cont promos__in">
+      <figure class="promos__foto rv"><img src="img/g/014.webp" srcset="img/g/014-s.webp 560w, img/g/014.webp 1100w" sizes="(min-width: 900px) 40vw, 92vw" width="1100" height="1173" alt="Mesa de Rumbo con tostado, latte, limonada, arroz y roll de canela frente a la pared de ladrillo" loading="lazy" decoding="async"></figure>
+      <div class="promos__txt">
+        <header class="sec-cab rv">
+          <p class="kicker">Promos de la casa</p>
+          <h2 class="sec-t" id="promos-t">De a dos, rinde más</h2>
+          <svg class="subraya" viewBox="0 0 300 20" aria-hidden="true"><path pathLength="1" d="M2 14 C60 18 90 4 140 8 C190 12 220 18 298 6"/></svg>
+          <p class="sec-d">Café o té a elección: doppio, flat white, cappuccino, americano o té en hebras.</p>
+        </header>
+        <div class="fila promos__fila" data-fila>
+          <article class="promo rv" style="--d:0"><p class="promo__k">Promo cafetería</p><h3 class="promo__n">Café + 2 medialunas</h3><p class="promo__d">Dos medialunas de manteca calentitas.</p><div class="promo__pie"><b data-precio="combo-medialunas">$11.000</b><button type="button" class="btn btn--verde btn--chico" data-calibrar="combo-medialunas">Sumar</button></div></article>
+          <article class="promo rv" style="--d:1"><p class="promo__k">Promo cafetería</p><h3 class="promo__n">Café + tostadas</h3><p class="promo__d">Dos panes de masa madre con queso crema y mermelada.</p><div class="promo__pie"><b data-precio="combo-tostadas">$10.000</b><button type="button" class="btn btn--verde btn--chico" data-calibrar="combo-tostadas">Sumar</button></div></article>
+          <article class="promo rv" style="--d:2"><p class="promo__k">Promo cafetería</p><h3 class="promo__n">Café + chipá prensado</h3><p class="promo__d">Chipá relleno de jamón natural y mix de quesos.</p><div class="promo__pie"><b data-precio="combo-chipa">$12.500</b><button type="button" class="btn btn--verde btn--chico" data-calibrar="combo-chipa">Sumar</button></div></article>
+          <article class="promo promo--alm rv" style="--d:3"><p class="promo__k">Promo almuerzo</p><h3 class="promo__n">Almuerzo + bebida</h3><p class="promo__d">Cualquier plato + agua o limonada.</p><div class="promo__pie"><b data-precio="almuerzo-bebida">$17.000</b><button type="button" class="btn btn--oro btn--chico" data-calibrar="almuerzo-bebida">Sumar</button></div></article>
+          <article class="promo promo--alm rv" style="--d:4"><p class="promo__k">Promo almuerzo</p><h3 class="promo__n">Almuerzo + bebida + café</h3><p class="promo__d">Y cerrás con doppio, americano, cappuccino, flat white o latte.</p><div class="promo__pie"><b data-precio="almuerzo-bebida-cafe">$20.000</b><button type="button" class="btn btn--oro btn--chico" data-calibrar="almuerzo-bebida-cafe">Sumar</button></div></article>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EL LOCAL -->
+  <section class="local" id="local" aria-labelledby="local-t">
+    <div class="cont">
+      <header class="sec-cab sec-cab--claro rv">
+        <p class="kicker">Una esquina de Coghlan</p>
+        <h2 class="sec-t" id="local-t">Ladrillo, nogal y neón</h2>
+        <svg class="subraya" viewBox="0 0 300 20" aria-hidden="true"><path pathLength="1" d="M2 14 C60 18 90 4 140 8 C190 12 220 18 298 6"/></svg>
+        <p class="sec-d">Una esquina de Coghlan con mesas en la vereda, el espiral de luz sobre la barra y lugar para quedarse con la compu.</p>
+      </header>
+      <div class="mosaico fila" data-fila>
+        <figure class="mos mos--a rv"><img src="img/g/038-s.webp" srcset="img/g/038-s.webp 560w, img/g/038.webp 1100w" sizes="(min-width: 900px) 46vw, 78vw" width="1100" height="1072" alt="El salón con el neón en espiral, la barra curva y las mesas junto al ventanal" loading="lazy" decoding="async"><figcaption>El salón · nominado The Best Coffee Shops 2026</figcaption></figure>
+        <figure class="mos mos--b rv"><img src="img/g/043-s.webp" srcset="img/g/043-s.webp 560w, img/g/043.webp 1100w" sizes="(min-width: 900px) 24vw, 62vw" width="1100" height="1467" alt="La esquina de noche con gente y perros en la vereda" loading="lazy" decoding="async"><figcaption>La vereda, con perros incluidos</figcaption></figure>
+        <figure class="mos mos--c rv"><img src="img/g/027-s.webp" srcset="img/g/027-s.webp 560w, img/g/027.webp 1100w" sizes="(min-width: 900px) 24vw, 62vw" width="1100" height="1467" alt="La fachada verde con el logo en la puerta y un cliente tomando café" loading="lazy" decoding="async"><figcaption>La puerta verde</figcaption></figure>
+        <figure class="mos mos--d rv"><img src="img/g/046-s.webp" srcset="img/g/046-s.webp 560w, img/g/046.webp 1100w" sizes="(min-width: 900px) 24vw, 62vw" width="1100" height="1464" alt="Bowl con palta y limonada de frutos rojos sobre mesa verde" loading="lazy" decoding="async"></figure>
+        <figure class="mos mos--e rv"><img src="img/g/005-s.webp" srcset="img/g/005-s.webp 560w, img/g/005.webp 1100w" sizes="(min-width: 900px) 24vw, 62vw" width="1100" height="1952" alt="Vaso verde con el logo de Rumbo bajo la máquina de espresso" loading="lazy" decoding="async"></figure>
+        <figure class="mos mos--f rv"><img src="img/g/039-s.webp" srcset="img/g/039-s.webp 560w, img/g/039.webp 1100w" sizes="(min-width: 900px) 46vw, 78vw" width="1100" height="978" alt="La vidriera con el logo de Rumbo" loading="lazy" decoding="async"></figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- CÓMO LLEGAR -->
+  <section class="donde" id="donde" aria-labelledby="donde-t">
+    <div class="cont donde__in">
+      <div class="donde__txt">
+        <header class="sec-cab rv">
+          <p class="kicker">Cómo llegar</p>
+          <h2 class="sec-t" id="donde-t">Freire 2599, Coghlan</h2>
+          <svg class="subraya" viewBox="0 0 300 20" aria-hidden="true"><path pathLength="1" d="M2 14 C60 18 90 4 140 8 C190 12 220 18 298 6"/></svg>
+        </header>
+        <p class="abierto abierto--grande rv" data-abierto-largo><i></i><span>Abierto de 8:30 a 20:00 hs</span></p>
+        <ul class="horas rv" data-horas>
+          <li data-dia="lun"><span>Lunes</span><b>8:30 a 20:00 hs</b></li>
+          <li data-dia="mar" class="is-off"><span>Martes</span><b>Cerrado</b></li>
+          <li data-dia="mie"><span>Miércoles</span><b>8:30 a 20:00 hs</b></li>
+          <li data-dia="jue"><span>Jueves</span><b>8:30 a 20:00 hs</b></li>
+          <li data-dia="vie"><span>Viernes</span><b>8:30 a 20:00 hs</b></li>
+          <li data-dia="sab"><span>Sábado</span><b>8:30 a 20:00 hs</b></li>
+          <li data-dia="dom"><span>Domingo</span><b>8:30 a 20:00 hs</b></li>
+        </ul>
+        <div class="donde__ctas rv">
+          <a class="btn btn--verde" href="https://wa.me/5491124745284?text=Hola%20Rumbo!" target="_blank" rel="noopener">WhatsApp 11 2474-5284</a>
+          <a class="btn btn--linea-v" href="https://www.google.com/maps/search/?api=1&amp;query=Rumbo+Cafeter%C3%ADa+Freire+2599+Coghlan" target="_blank" rel="noopener">Abrir en Maps</a>
+          <a class="btn btn--linea-v" href="https://www.instagram.com/rumbo.cafeteria/" target="_blank" rel="noopener">@rumbo.cafeteria</a>
+        </div>
+      </div>
+      <div class="donde__mapa rv">
+        <iframe title="Mapa: Rumbo Cafetería, Freire 2599, Coghlan" data-src="https://www.google.com/maps?q=Freire%202599%2C%20Coghlan%2C%20Buenos%20Aires&amp;z=16&amp;output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="pie">
+  <div class="cont pie__in">
+    <img class="pie__logo" src="img/logo-dorado.svg" width="520" height="230" alt="Rumbo Cafetería">
+    <p class="pie__lema">No hacemos café. Lo calibramos.</p>
+    <p class="pie__datos">Cap. Gral. Ramón Freire 2599, Coghlan, CABA · 8:30 a 20:00 hs · martes cerrado</p>
+    <nav class="pie__links" aria-label="Enlaces">
+      <a href="carta/">Carta para el QR</a><a href="https://www.instagram.com/rumbo.cafeteria/" target="_blank" rel="noopener">Instagram</a><a href="https://wa.me/5491124745284" target="_blank" rel="noopener">WhatsApp</a><a href="admin/" target="_blank" rel="noopener">Panel del local</a>
+    </nav>
+    <p class="pie__credito">Sitio desarrollado por <a href="https://alejomfernandez.com.ar" target="_blank" rel="noopener">Alejo Martín Fernández</a></p>
+  </div>
+</footer>
+
+<!-- CALIBRADOR (opciones al sumar) -->
+<div class="cal" hidden role="dialog" aria-modal="true" aria-labelledby="cal-n">
+  <div class="cal__fondo" data-cal-cerrar></div>
+  <form class="cal__caja" novalidate>
+    <button type="button" class="cal__x" data-cal-cerrar aria-label="Cerrar"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
+    <p class="cal__k">Calibralo a tu gusto</p>
+    <h3 class="cal__n" id="cal-n">Flat White</h3>
+    <p class="cal__d"></p>
+    <div class="cal__grupos"></div>
+    <div class="cal__pie">
+      <div class="cal__cant" role="group" aria-label="Cantidad"><button type="button" data-cal-cant="-1" aria-label="Uno menos">−</button><output>1</output><button type="button" data-cal-cant="1" aria-label="Uno más">+</button></div>
+      <button type="submit" class="btn btn--verde cal__ok">Sumar · <span>$6.500</span></button>
+    </div>
+  </form>
+</div>
+
+<!-- FOTO (celu) -->
+<div class="lb" hidden role="dialog" aria-modal="true" aria-label="Foto del plato">
+  <div class="lb__fondo" data-lb-cerrar></div>
+  <figure class="lb__caja"><img src="" alt="" width="900" height="900"><figcaption></figcaption></figure>
+  <button type="button" class="cal__x lb__x" data-lb-cerrar aria-label="Cerrar foto"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
+</div>
+
+<!-- CONFIRMACIÓN -->
+<div class="ok" hidden role="dialog" aria-modal="true" aria-labelledby="ok-t">
+  <div class="ok__fondo" data-ok-cerrar></div>
+  <div class="ok__caja">
+    <button type="button" class="cal__x" data-ok-cerrar aria-label="Cerrar"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
+    <svg class="ok__traza" viewBox="0 0 300 40" aria-hidden="true"><path pathLength="1" d="M4 30 C60 38 90 8 140 14 C190 20 176 34 220 30 C260 26 270 12 296 8"/></svg>
+    <h3 class="ok__t" id="ok-t">Te lo estamos calibrando</h3>
+    <p class="ok__cod"></p>
+    <p class="ok__cuando"></p>
+    <ul class="ok__items"></ul>
+    <p class="ok__pago"></p>
+    <p class="ok__sub"></p>
+    <div class="ok__ctas"><a class="btn btn--verde" data-ok-wa href="#" target="_blank" rel="noopener" hidden>Abrir WhatsApp</a><button type="button" class="btn btn--linea-v" data-ok-cerrar>Listo</button></div>
+  </div>
+</div>
+
+<script type="module" src="js/rumbo.js?v=1"></script>
+</body>
+</html>
